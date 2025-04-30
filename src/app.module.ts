@@ -8,7 +8,6 @@ import { DatabaseModule } from './database/database.module';
 import mongoose from 'mongoose';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
-
 @Module({
   imports: [
     ConfigModule.forRoot({
