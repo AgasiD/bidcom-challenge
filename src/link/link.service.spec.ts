@@ -3,20 +3,20 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { CreateLinkDto } from './dto/create-link.dto';
 import { LinkService } from './link.service';
 import  * as helper from '../common/helpers/helpers';
-import { DatabaseService } from '../database/database.service';
+import { LinkRepository } from '../database/database.service';
 
 jest.mock('../common/helpers/helpers');
 
 describe('LinkService', () => {
   let service: LinkService;
-  let db: DatabaseService;
+  let db: LinkRepository;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         LinkService,
         {
-          provide: DatabaseService,
+          provide: LinkRepository,
           useValue: {
             create: jest.fn(),
             findOne: jest.fn(),
@@ -27,7 +27,7 @@ describe('LinkService', () => {
     }).compile();
 
     service = module.get<LinkService>(LinkService);
-    db = module.get<DatabaseService>(DatabaseService);
+    db = module.get<LinkRepository>(LinkRepository);
   });
 
   describe('crearLink', () => {

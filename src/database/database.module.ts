@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 
-import { DatabaseService } from 'src/database/database.service';
+import { LinkRepository } from 'src/database/database.service';
 
 import { Link, LinkSchema } from './entities/link.entity';
 
 @Module({
-  providers: [DatabaseService],
+  providers: [LinkRepository],
   imports: [
     MongooseModule.forFeature([ 
       {
@@ -15,7 +15,7 @@ import { Link, LinkSchema } from './entities/link.entity';
       }
     ])
   ],
-  exports: [DatabaseService]
+  exports: [LinkRepository]
 })
 export class DatabaseModule {}
 

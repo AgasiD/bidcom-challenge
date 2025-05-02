@@ -3,13 +3,13 @@ import { randomBytes } from 'crypto';
 
 import { cifrarCadena, handleException, isCadenasIguales } from '../common/helpers/helpers';
 import { CreateLinkDto } from './dto/create-link.dto';
-import { DatabaseService } from '../database/database.service';
+import { LinkRepository } from '../database/database.service';
 
 @Injectable()
 export class LinkService {
 
   constructor(
-    private readonly db: DatabaseService
+    private readonly db: LinkRepository
   ) { }
 
   async crearLink(linkDTO: CreateLinkDto, pass?: string) {

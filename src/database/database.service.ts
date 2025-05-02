@@ -5,7 +5,7 @@ import { handleException } from '../common/helpers/helpers';
 import { Link } from './entities/link.entity';
 
 @Injectable()
-export class DatabaseService {
+export class LinkRepository {
 
     constructor(
         @InjectModel(Link.name)
