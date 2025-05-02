@@ -37,6 +37,9 @@ export class Link extends Document{
     })
     redirectCount: number;
 
+    @Prop()
+    ts: number
+
   }
 
     export const LinkSchema = SchemaFactory.createForClass( Link );

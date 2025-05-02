@@ -25,6 +25,7 @@ export class LinkService {
         enmask,
         password: await cifrarCadena(pass),
         expires: linkDTO.expires,
+        ts: Date.now()
       }
 
       let result = await this.db.create(data_link)
